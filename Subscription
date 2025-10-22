@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garaje Agüeybaná — Suscripción</title>
+  <meta name="description" content="Suscripción de mantenimiento: 4 visitas al año. Cambio de aceite, rotación de gomas, flush de frenos e inspecciones multipunto." />
+  <link rel="icon" href="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" />
+  <link rel="stylesheet" href="main_styles.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/subs.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="top-nav" aria-label="Principal">
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
 
+      <div class="nav-left">
+        <a href="index.html" class="brand" aria-label="Inicio Garaje Agüeybaná">
+          <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="160" height="160" />
+        </a>
+      </div>
+
+      <div class="nav-center nav-buttons" id="main-menu">
+        <a href="index.html">Inicio</a>
+        <a href="subscripcion.html" aria-current="page">Suscripción</a>
+        <a href="nosotros.html">Sobre nosotros</a>
+      </div>
+
+      <div class="nav-right contact-info">
+        <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
+          <div class="contact phone">
+            <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Phone_Logo.webp" alt="" width="24" height="24" />
+            <span>(939) 645-3838</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
+          <div class="contact instagram">
+            <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Insta_Logo.webp" alt="" width="24" height="24" />
+            <span>@garajeagueybana</span>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <section class="heading" aria-labelledby="page-title">
+      <div class="heading-content">
+        <h1 id="page-title">Suscripción de mantenimiento</h1>
+        <p>Incluye 4 visitas al año para un mantenimiento automático de tu carro.</p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+
+    <h1 class="services-title">Servicios que ofrecemos</h1>
+    <section class="services" aria-label="Servicios incluidos en la suscripción">
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/oil_1.webp" alt="Cambio de aceite" width="60" height="60" loading="lazy">
+        <h3>Cambio de aceite</h3>
+        <p>2 servicios de cambio de aceite y filtro al año, incluyendo rotación de gomas.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/brake.webp" alt="Flush de frenos" width="60" height="60" loading="lazy">
+        <h3>Flush de frenos</h3>
+        <p>Servicio completo de limpieza del sistema de frenos una vez al año.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/inspection.webp" alt="Inspección multipunto" width="60" height="60" loading="lazy">
+        <h3>Inspección multipunto</h3>
+        <p>2 chequeos completos al año para detectar cualquier problema a tiempo.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/fluid-level.webp" alt="Chequeo de fluidos" width="60" height="60" loading="lazy">
+        <h3>Chequeo de fluidos</h3>
+        <p>En cada visita se revisan y rellenan todos los fluidos visibles del vehículo.</p>
+      </div>
+    </section>
+
+    <h1 class="services-title">Servicios adicionales (<b>no incluidos</b>; precios y citas <b>según servicio</b>)</h1>
+    <section class="services" aria-label="Servicios adicionales">
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/General_Mechanic.webp" alt="Mecánica liviana" width="60" height="60" loading="lazy">
+        <h3>Mecánica liviana general</h3>
+        <p>Reparaciones básicas como frenos, correas, batería, luces, sensores y otros componentes menores.</p>
+      </div>
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Electromechanics.webp" alt="Electromecánica" width="60" height="60" loading="lazy">
+        <h3>Electromecánica</h3>
+        <p>Diagnóstico y reparación de fallas eléctricas y electrónicas del sistema del vehículo.</p>
+      </div>
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Inspection_Sale.webp" alt="Inspección de compra/venta" width="60" height="60" loading="lazy">
+        <h3>Inspección de vehículos para compra/venta</h3>
+        <p>Evaluación completa del vehículo para conocer su estado antes de comprarlo o venderlo.</p>
+      </div>
+      <div class="service-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Alignment.webp" alt="Alineamiento" width="60" height="60" loading="lazy">
+        <h3>Alineamientos</h3>
+        <p>Ajuste de ángulos de las ruedas para corregir desviaciones y mejorar el manejo del vehículo.</p>
+      </div>
+    </section>
+
+    <h1 class="services-title">Agregar tu vehículo</h1>
+    <section class="vehicle-form" aria-label="Formulario para agregar vehículo">
+      <form id="vehicleForm" novalidate>
+        <div class="form-group">
+          <label for="year">Año</label>
+          <select id="year" required>
+            <option value="">Selecciona año</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="make">Marca</label>
+          <select id="make" required disabled>
+            <option value="">Selecciona marca</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="model">Modelo</label>
+          <select id="model" required disabled>
+            <option value="">Selecciona modelo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="plan">Plan asignado</label>
+          <div id="plan" class="plan-display" aria-live="polite">—</div>
+          <input type="hidden" id="plan_hidden" name="plan" />
+        </div>
+
+        <button type="submit" class="select-btn">Agregar vehículo</button>
+      </form>
+
+      <div id="result" class="result-card" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="FooterSiteName">
+      <div class="footer-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="120" height="120" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="FooterSiteSocial">
+      <div class="footer-box">
+        <h2>Contáctanos</h2>
+        <div class="FollowSocials">
+          <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
+            <div class="contact phone">
+              <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Phone_Logo.webp" alt="" width="24" height="24" loading="lazy" />
+              <span>(939) 645-3838</span>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
+            <div class="contact instagram">
+              <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Insta_Logo.webp" alt="" width="24" height="24" loading="lazy" />
+              <span>@garajeagueybana</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="FooterSiteNews">
+      <div class="footer-box">
+        <h2>Suscríbete a nuestro servicio</h2>
+        <a href="subscripcion.html" class="SignUp">¡Suscríbete!</a>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>
