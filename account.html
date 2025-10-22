@@ -16,26 +16,20 @@
 
   onAuthStateChanged(auth, async (user)=>{
     if(!user){ location.href="login.html"; return; }
-
-    const uref = doc(db, "users", user.uid);
+    const uref = doc(db,"users",user.uid);
     const usnap = await getDoc(uref);
     const u = usnap.data()||{};
-
     userName.textContent = user.displayName || `${u.nombre||""} ${u.apellido||""}`.trim();
     userEmail.textContent = user.email;
     userAddr.textContent  = u.direccion || "—";
 
     const list = document.getElementById("vehicles"); list.innerHTML="";
-    const vs = await getDocs(collection(db, "users", user.uid, "vehicles"));
+    const vs = await getDocs(collection(db,"users",user.uid,"vehicles"));
     vs.forEach(d=>{
       const v=d.data();
       const card = document.createElement("div");
       card.className="result-card sedan";
-      card.innerHTML = `
-        <b>${v.year} ${v.make} ${v.model}</b><br>
-        Tablilla: <b>${v.plate}</b><br>
-        Plan: <b>${v.tier}</b>
-      `;
+      card.innerHTML = `<b>${v.year} ${v.make} ${v.model}</b><br>Tablilla: <b>${v.plate}</b><br>Plan: <b>${v.tier}</b>`;
       list.appendChild(card);
     });
 
@@ -44,16 +38,13 @@
 </script>
 </head><body>
 <nav class="top-nav">
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-  <div class="nav-left"><img src="Images/Logo_2.webp" alt="Agueybana Logo" class="logo" /></div>
+  <div class="nav-left"><img src="Images/Logo_2.webp" alt="Agueybana" class="logo"></div>
   <div class="nav-center nav-buttons">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='subscripcion.html'">Suscripción</button>
     <button onclick="location.href='nosotros.html'">Sobre nosotros</button>
   </div>
-  <div class="nav-right"></div>
 </nav>
-
 <main style="margin-top:12rem">
   <section class="about-us" style="background:#1a1a1a;color:#fff">
     <div class="about-content" style="flex-direction:column;max-width:900px;margin:auto">
@@ -61,7 +52,6 @@
       <p>Email: <span id="userEmail">—</span></p>
       <p>Dirección: <span id="userAddr">—</span></p>
       <button class="select-btn" id="logoutBtn" style="width:auto">Cerrar sesión</button>
-
       <h3 style="margin-top:2rem">Tus vehículos</h3>
       <div id="vehicles"></div>
     </div>
