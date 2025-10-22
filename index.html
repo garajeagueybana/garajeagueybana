@@ -2,178 +2,131 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Garaje Agüeybaná — Mecánica móvil en Puerto Rico</title>
-  <meta name="description" content="Tu mecánico de confianza, cuando y donde lo necesites. Suscripciones de mantenimiento, inspección y servicios a domicilio en toda la isla." />
-  <link rel="preload" as="image" href="Images/Logo_2.webp" />
-  <link rel="icon" href="Images/Logo_2.webp" />
-  <link rel="canonical" href="https://tu-dominio.com/" />
-  <meta property="og:title" content="Garaje Agüeybaná" />
-  <meta property="og:description" content="Tu mecánico de confianza, cuando y donde lo necesites." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="Images/Logo_2.webp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="main_styles.css" />
-  <script src="assets/js/main.js" defer></script>
+  <title>Agueybana</title>
 </head>
 <body>
-  <header>
-    <nav class="top-nav" aria-label="Principal">
-      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
-        <span></span><span></span><span></span>
-      </button>
+<header>
+  <nav class="top-nav">
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div class="nav-left"><img src="Images/Logo_2.webp" alt="Agueybana Logo" class="logo" /></div>
+    <div class="nav-center nav-buttons">
+      <button onclick="location.href='index.html'">Inicio</button>
+      <button onclick="location.href='subscripcion.html'">Suscripción</button>
+      <button onclick="location.href='nosotros.html'">Sobre nosotros</button>
+      <!-- aquí se inyecta el botón de Iniciar sesión / Mi cuenta -->
+    </div>
+    <div class="nav-right contact-info">
+      <a href="https://wa.me/+19394100321" target="_blank">
+        <div class="contact phone"><img src="Images/Phone_Logo.webp" alt="Phone" /><span>(939) 645-3838</span></div>
+      </a>
+      <a href="https://www.instagram.com/garajeagueybana/" target="_blank">
+        <div class="contact instagram"><img src="Images/Insta_Logo.webp" alt="Instagram" /><span>@garajeagueybana</span></div>
+      </a>
+    </div>
+  </nav>
 
-      <div class="nav-left">
-        <a href="index.html" class="brand" aria-label="Inicio Garaje Agüeybaná">
-          <img src="Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="160" height="160" />
-        </a>
+  <section class="heading">
+    <div class="heading-content">
+      <h1>Bienvenido a Agueybana</h1>
+      <p>Tu mecánico de confianza, cuando y donde lo necesites.</p>
+      <button class="login-btn" onclick="location.href='login.html'">Iniciar sesión</button>
+    </div>
+  </section>
+</header>
+
+<main>
+  <!-- Resumen de servicios con carrusel -->
+  <section class="summary-services">
+    <div class="interact-summary">
+      <div class="img-box"><img id="mainImgLeft" src="Images/1.jpg" alt=""></div>
+      <div class="nav"><span onclick="prev()">&#9664;</span> Servicios: <span onclick="next()">&#9654;</span></div>
+    </div>
+    <div class="summary-text">
+      <div class="image-placeholder"><img id="mainImgRight" src="Images/1.jpg" alt=""></div>
+      <hr><h2 id="title">Title goes here</h2>
+      <p id="text">Text goes here</p><hr>
+      <div class="small-title" id="smallTitle">Title goes here</div>
+    </div>
+  </section>
+
+  <!-- Planes (nombres nuevos) -->
+  <section class="subscription">
+    <div class="car" onclick="location.href='subscripcion.html'">
+      <img src="Images/Car_Icon_2.webp" alt="Car icon">
+      <h1>Naboria</h1>
+      <small>Antes: Sedán Básico</small>
+      <h2><span class="price">$400</span><span class="renewal">/año</span></h2>
+      <ul>
+        <li>✅ 2 cambios de aceite y filtro al año</li>
+        <li>✅ 2 rotaciones de gomas</li>
+        <li>✅ 1 flush del sistema de frenos</li>
+        <li>✅ 2 inspecciones multipunto</li>
+        <li>✅ Chequeo de fluidos esenciales en cada visita</li>
+        <li>✅ Servicio a domicilio en toda la isla</li>
+      </ul>
+    </div>
+
+    <div class="truck" onclick="location.href='subscripcion.html'">
+      <img src="Images/SUV_Icon.webp" alt="SUV icon">
+      <h1>Nitaíno</h1>
+      <small>Antes: Guagua/SUV</small>
+      <h2><span class="price">$500</span><span class="renewal">/año</span></h2>
+      <ul>
+        <li>✅ 2 cambios de aceite y filtro al año</li>
+        <li>✅ 2 rotaciones de gomas</li>
+        <li>✅ 1 flush del sistema de frenos</li>
+        <li>✅ 2 inspecciones multipunto</li>
+        <li>✅ Chequeo de fluidos esenciales en cada visita</li>
+        <li>✅ Servicio a domicilio en toda la isla</li>
+      </ul>
+    </div>
+
+    <div class="premium" onclick="location.href='subscripcion.html'">
+      <img src="Images/Premium_Icon_2.webp" alt="Premium icon">
+      <h1>El Cacique</h1>
+      <small>Premium</small>
+      <h2><span class="price">$550</span><span class="renewal">/año</span></h2>
+      <ul>
+        <li>✅ Todos los beneficios de Naboria y Nitaíno</li>
+        <li>✅ 25% de descuento en labor de otras reparaciones</li>
+        <li>✅ Registrar más de un vehículo</li>
+        <li>✅ Flexibilidad para múltiples vehículos bajo la misma cuenta</li>
+        <li>✅ Servicio a domicilio en toda la isla</li>
+      </ul>
+    </div>
+  </section>
+
+  <a href="subscripcion.html" class="advertisement-anchor">
+    <div class="advertisement">
+      <p>Tu mecánico, cuando y donde lo necesitas.</p><button>¡Suscríbete ahora!</button>
+    </div>
+  </a>
+</main>
+
+<footer>
+  <section class="FooterSiteName"><div class="footer-box"><img src="Images/Logo_2.webp" alt="Agueybana Logo" class="logo" /></div></section>
+  <section class="FooterSiteSocial">
+    <div class="footer-box">
+      <h2>Contact us</h2>
+      <div class="FollowSocials">
+        <a href="https://wa.me/+19394100321" target="_blank"><div class="contact phone"><img src="Images/Phone_Logo.webp" alt="Phone" /><span>(939) 645-3838</span></div></a>
+        <a href="https://www.instagram.com/garajeagueybana/" target="_blank"><div class="contact instagram"><img src="Images/Insta_Logo.webp" alt="Instagram" /><span>@garajeagueybana</span></div></a>
       </div>
+    </div>
+  </section>
+  <section class="FooterSiteNews"><div class="footer-box"><h2>Subscribe to our membership</h2><a href="subscripcion.html" class="SignUp">Subscribe!</a></div></section>
+</footer>
 
-      <div class="nav-center nav-buttons" id="main-menu">
-        <a href="index.html" aria-current="page">Inicio</a>
-        <a href="subscripcion.html">Suscripción</a>
-        <a href="nosotros.html">Sobre nosotros</a>
-      </div>
-
-      <div class="nav-right contact-info">
-        <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
-          <div class="contact phone">
-            <img src="Images/Phone_Logo.webp" alt="" width="24" height="24" />
-            <span>(939) 645-3838</span>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
-          <div class="contact instagram">
-            <img src="Images/Insta_Logo.webp" alt="" width="24" height="24" />
-            <span>@garajeagueybana</span>
-          </div>
-        </a>
-      </div>
-    </nav>
-
-    <section class="heading">
-      <div class="heading-content">
-        <h1>Tu mecánico de confianza</h1>
-        <p>Cuando y donde lo necesites.</p>
-        <button class="login-btn" type="button">Iniciar sesión</button>
-      </div>
-    </section>
-  </header>
-
-  <main>
-    <section class="summary-services">
-      <div class="interact-summary">
-        <div class="img-box">
-          <img id="mainImgLeft" src="Images/1.jpg" alt="Vista del servicio actual" width="640" height="360" />
-        </div>
-        <div class="nav" role="group" aria-label="Carrusel de servicios">
-          <button type="button" id="prevBtn" aria-label="Servicio anterior">&#9664;</button>
-          <span aria-hidden="true">Servicios</span>
-          <button type="button" id="nextBtn" aria-label="Servicio siguiente">&#9654;</button>
-        </div>
-      </div>
-
-      <div class="summary-text">
-        <div class="image-placeholder">
-          <img id="mainImgRight" src="Images/1.jpg" alt="Imagen del servicio seleccionado" width="640" height="360" loading="lazy" />
-        </div>
-        <hr />
-        <h2 id="title">Mecánica liviana</h2>
-        <p id="text">Mantenimiento y reparaciones esenciales para prolongar la vida útil de tu vehículo…</p>
-        <hr />
-        <p class="small-title" id="smallTitle">Mecánica liviana</p>
-      </div>
-    </section>
-
-    <section class="subscription">
-      <article class="car" tabindex="0" role="link" aria-label="Suscripción Sedán Básico" data-link="subscripcion.html">
-        <img src="Images/Car_Icon_2.webp" alt="Ícono de sedán" width="96" height="96" loading="lazy" />
-        <h3>Sedán Básico</h3>
-        <small>Para sedanes, hatchbacks, coupés</small>
-        <h4><span class="price">$400</span><span class="renewal">/año</span></h4>
-        <ul>
-          <li>2 cambios de aceite y filtro al año</li>
-          <li>2 rotaciones de gomas</li>
-          <li>1 flush del sistema de frenos</li>
-          <li>2 inspecciones multipunto</li>
-          <li>Chequeo de fluidos esenciales en cada visita</li>
-          <li>Servicio de aire acondicionado</li>
-          <li>Servicio a domicilio en toda la isla</li>
-        </ul>
-      </article>
-
-      <article class="truck" tabindex="0" role="link" aria-label="Suscripción Guagua Básica" data-link="subscripcion.html">
-        <img src="Images/SUV_Icon.webp" alt="Ícono de SUV" width="96" height="96" loading="lazy" />
-        <h3>Guagua Básica</h3>
-        <small>Para SUV, pick-ups, minivans</small>
-        <h4><span class="price">$500</span><span class="renewal">/año</span></h4>
-        <ul>
-          <li>2 cambios de aceite y filtro al año</li>
-          <li>2 rotaciones de gomas</li>
-          <li>1 flush del sistema de frenos</li>
-          <li>2 inspecciones multipunto</li>
-          <li>Chequeo de fluidos esenciales en cada visita</li>
-          <li>Servicio de aire acondicionado</li>
-          <li>Servicio a domicilio en toda la isla</li>
-        </ul>
-      </article>
-
-      <article class="premium" tabindex="0" role="link" aria-label="Suscripción Premium" data-link="subscripcion.html">
-        <img src="Images/Premium_Icon_2.webp" alt="Ícono de plan premium" width="96" height="96" loading="lazy" />
-        <h3>Premium</h3>
-        <small>Para múltiples vehículos</small>
-        <h4><span class="price">$550</span><span class="renewal">/año</span></h4>
-        <ul>
-          <li>Todos los beneficios de los planes anteriores</li>
-          <li>25% de descuento en labor de otras reparaciones</li>
-          <li>Registrar más de un vehículo</li>
-          <li>Flexibilidad para mantener vehículos distintos bajo una misma cuenta</li>
-          <li>Servicio de aire acondicionado</li>
-          <li>Servicio a domicilio en toda la isla</li>
-        </ul>
-      </article>
-    </section>
-
-    <a href="subscripcion.html" class="advertisement-anchor">
-      <div class="advertisement">
-        <p>Tu mecánico, cuando y donde lo necesitas.</p>
-        <button type="button">¡Suscríbete ahora!</button>
-      </div>
-    </a>
-  </main>
-
-  <footer>
-    <section class="FooterSiteName">
-      <div class="footer-box">
-        <img src="Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="120" height="120" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="FooterSiteSocial">
-      <div class="footer-box">
-        <h2>Contáctanos</h2>
-        <div class="FollowSocials">
-          <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
-            <div class="contact phone">
-              <img src="Images/Phone_Logo.webp" alt="" width="24" height="24" loading="lazy" />
-              <span>(939) 645-3838</span>
-            </div>
-          </a>
-          <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
-            <div class="contact instagram">
-              <img src="Images/Insta_Logo.webp" alt="" width="24" height="24" loading="lazy" />
-              <span>@garajeagueybana</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="FooterSiteNews">
-      <div class="footer-box">
-        <h2>Suscríbete a nuestro servicio</h2>
-        <a href="subscripcion.html" class="SignUp">¡Suscríbete!</a>
-      </div>
-    </section>
-  </footer>
+<!-- SDKs + Auth + lógicas -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+</script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="assets/js/auth.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
