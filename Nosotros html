@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garaje Agüeybaná — Sobre nosotros</title>
+  <meta name="description" content="Conoce a Garaje Agüeybaná: mecánica móvil en Puerto Rico. Conveniencia, transparencia y mantenimiento preventivo a domicilio." />
+  <link rel="icon" href="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" />
+  <link rel="stylesheet" href="main_styles.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/faq.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="top-nav" aria-label="Principal">
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-left">
+        <a href="index.html" class="brand" aria-label="Inicio Garaje Agüeybaná">
+          <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="160" height="160" />
+        </a>
+      </div>
+
+      <div class="nav-center nav-buttons" id="main-menu">
+        <a href="index.html">Inicio</a>
+        <a href="subscripcion.html">Suscripción</a>
+        <a href="nosotros.html" aria-current="page">Sobre nosotros</a>
+      </div>
+
+      <div class="nav-right contact-info">
+        <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
+          <div class="contact phone">
+            <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Phone_Logo.webp" alt="" width="24" height="24" />
+            <span>(939) 645-3838</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
+          <div class="contact instagram">
+            <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Insta_Logo.webp" alt="" width="24" height="24" />
+            <span>@garajeagueybana</span>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <section class="heading" aria-labelledby="page-title">
+      <div class="heading-content">
+        <h1 id="page-title">Sobre nosotros</h1>
+        <p>Tu mecánico de confianza, cuando y donde lo necesites.</p>
+        <button class="login-btn" type="button">Iniciar sesión</button>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="about-us" aria-labelledby="about-title">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 id="about-title">Nuestra historia y propósito</h2>
+          <p>
+            Nacimos con la idea clara de que mantener tu carro al día no tiene por qué ser complicado.
+            Llevamos el taller hasta donde estés y convertimos el mantenimiento en algo sencillo y confiable.
+            Tú le echas gasolina; nosotros nos encargamos del resto.
+          </p>
+
+          <ul>
+            <li><span>✔</span> <strong>Conveniencia</strong> con servicio a domicilio en toda la isla</li>
+            <li><span>✔</span> <strong>Transparencia</strong> en diagnóstico y reparación</li>
+            <li><span>✔</span> <strong>Confianza</strong> respaldada por experiencia</li>
+            <li><span>✔</span> <strong>Preventivo</strong> para extender la vida de tu auto</li>
+          </ul>
+        </div>
+
+        <div class="about-image">
+          <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" alt="Marca Garaje Agüeybaná" width="500" height="500" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1" id="btn-faq-1">
+          ¿Qué incluye la suscripción de mantenimiento? <span class="icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-1" role="region" aria-labelledby="btn-faq-1" hidden>
+          <p>
+            2 cambios de aceite y filtro con rotación de gomas, 1 flush de frenos, 2 inspecciones multipunto y verificación de fluidos visibles.
+            Total: 4 visitas al año.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2" id="btn-faq-2">
+          ¿Qué beneficios tiene la suscripción Premium? <span class="icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-2" role="region" aria-labelledby="btn-faq-2" hidden>
+          <p>Incluye lo básico y 25% de descuento en mano de obra de otras reparaciones.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-3" id="btn-faq-3">
+          ¿Cuáles son los precios? <span class="icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-3" role="region" aria-labelledby="btn-faq-3" hidden>
+          <p>Sedán $400/año — Guagua $500/año — Premium $550/año. (Sujeto a cambios).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-4" id="btn-faq-4">
+          ¿Atienden toda la isla? <span class="icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-4" role="region" aria-labelledby="btn-faq-4" hidden>
+          <p>Sí, en toda la isla, con prioridad en el área sur.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="FooterSiteName">
+      <div class="footer-box">
+        <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Logo_2.webp" alt="Logotipo de Garaje Agüeybaná" class="logo" width="120" height="120" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="FooterSiteSocial">
+      <div class="footer-box">
+        <h2>Contáctanos</h2>
+        <div class="FollowSocials">
+          <a href="https://wa.me/19396453838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Garaje Agüeybaná">
+            <div class="contact phone">
+              <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Phone_Logo.webp" alt="" width="24" height="24" loading="lazy" />
+              <span>(939) 645-3838</span>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/garajeagueybana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Garaje Agüeybaná">
+            <div class="contact instagram">
+              <img src="https://raw.githubusercontent.com/RubenCentenoRoman/Website---Agueybana/192dfcb2c3a48b4789e13a05bc90c75cfa941094/Images/Insta_Logo.webp" alt="" width="24" height="24" loading="lazy" />
+              <span>@garajeagueybana</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="FooterSiteNews">
+      <div class="footer-box">
+        <h2>Suscríbete a nuestro servicio</h2>
+        <a href="subscripcion.html" class="SignUp">¡Suscríbete!</a>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>
