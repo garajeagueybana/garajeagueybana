@@ -115,7 +115,7 @@
         });
         log("Documento /users creado.");
 
-        await addDoc(collection(db,"users",cred.user.uid,"vehicles"), {
+        await addDoc(collection(db,"users",cred.user.uid,"vehicles"),  {
   year, make, model, plate,
   oilCapacity: cls.oilCapacity,
   tier: cls.type,
@@ -123,6 +123,19 @@
   nextVisit: "Pendiente",
   services: ["Suscripción inicial creada"],
   createdAt: Date.now()
+});
+        // ---- ENVIAR CORREO AUTOMÁTICO ----
+fetch("https://script.google.com/macros/s/TU_WEB_APP_URL/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nombre, apellido, email,
+    year, make, model, plate,
+    tier: cls.type,
+    monto: cls.type === "Naboria" ? "$400" :
+           cls.type === "Nitaíno" ? "$500" :
+           "$550"
+  })
 });
 
         // Redirigir
