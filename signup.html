@@ -115,14 +115,15 @@
         });
         log("Documento /users creado.");
 
-        // Vehículo
         await addDoc(collection(db,"users",cred.user.uid,"vehicles"), {
-          year, make, model, plate,
-          oilCapacity: cls.oilCapacity,
-          tier: cls.type,
-          createdAt: Date.now()
-        });
-        log("Vehículo guardado.");
+  year, make, model, plate,
+  oilCapacity: cls.oilCapacity,
+  tier: cls.type,
+  status: 100, // porcentaje de estado (ej. mantenimiento reciente)
+  nextVisit: "Pendiente",
+  services: ["Suscripción inicial creada"],
+  createdAt: Date.now()
+});
 
         // Redirigir
         log("Redirigiendo a Mi cuenta…");
