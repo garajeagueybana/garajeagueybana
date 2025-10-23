@@ -1,142 +1,107 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mi Cuenta - Garaje Agüeybaná</title>
-  <link rel="stylesheet" href="main_styles.css" />
-  <style>
-    .account-container {
-      max-width: 900px;
-      margin: 11rem auto 4rem;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+  import { getFirestore, doc, getDoc, collection, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+  import { firebaseConfig } from "./firebase-config.js";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const userInfoDiv = document.getElementById("user-info");
+  const vehicleListDiv = document.getElementById("vehicle-list");
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      location.href = "login.html";
+      return;
     }
-    h1,h2 { color: gold; text-align: center; }
-    .vehicle-card {
-      background: #222;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
+
+    // Datos del usuario autenticado
+    const userRef = doc(db, "users", user.uid);
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) return;
+    const data = userSnap.data();
+
+    const isAdmin = data.role === "admin";
+    userInfoDiv.innerHTML = `
+      <p><b>Nombre:</b> ${data.nombre || ""} ${data.apellido || ""}</p>
+      <p><b>Email:</b> ${user.email}</p>
+      <p><b>Rol:</b> ${isAdmin ? "Administrador" : "Cliente"}</p>
+      <button class="login-btn" onclick="logout()">Cerrar sesión</button>
+    `;
+
+    if (isAdmin) {
+      renderAdminView();
+    } else {
+      renderClientView(user.uid);
     }
-    .vehicle-card:hover { background: #333; }
-    .vehicle-profile {
-      display: none;
-      background: #111;
-      padding: 1rem;
-      margin-top: 0.5rem;
-      border-radius: 8px;
-    }
-    .progress {
-      width: 100%;
-      height: 20px;
-      background: #444;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 0.5rem;
-    }
-    .progress-bar {
-      height: 100%;
-      background: limegreen;
-      width: 0;
-      transition: width 1s ease-in-out;
-    }
-    .service-log p {
-      margin: 0.3rem 0;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-  <nav class="top-nav">
-    <div class="nav-left"><img src="Images/Logo_2.webp" class="logo" /></div>
-    <div class="nav-center nav-buttons">
-      <button onclick="location.href='index.html'">Inicio</button>
-      <button onclick="location.href='subscripcion.html'">Suscripción</button>
-      <button onclick="location.href='nosotros.html'">Sobre nosotros</button>
-    </div>
-  </nav>
+  });
 
-  <div class="account-container">
-    <h1>Mi Perfil</h1>
-    <div id="user-info"></div>
+  async function renderClientView(uid) {
+    const vehRef = collection(db, "users", uid, "vehicles");
+    const vehDocs = await getDocs(vehRef);
+    vehicleListDiv.innerHTML = "<h3>Mis Vehículos</h3>";
+    vehDocs.forEach((v) => {
+      const d = v.data();
+      const card = createVehicleCard(v.id, d, false);
+      vehicleListDiv.appendChild(card);
+    });
+  }
 
-    <h2>Mis Vehículos</h2>
-    <div id="vehicle-list"></div>
-  </div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-    import { getFirestore, doc, getDoc, collection, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-    import { firebaseConfig } from "./firebase-config.js";
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    const userInfoDiv = document.getElementById("user-info");
-    const vehicleListDiv = document.getElementById("vehicle-list");
-
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        location.href = "login.html";
-        return;
-      }
-
-      // Datos del usuario
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const data = userSnap.data();
-        userInfoDiv.innerHTML = `
-          <p><b>Nombre:</b> ${data.nombre} ${data.apellido}</p>
-          <p><b>Dirección:</b> ${data.direccion}</p>
-          <p><b>Email:</b> ${user.email}</p>
-          <button class="login-btn" onclick="logout()">Cerrar sesión</button>
-        `;
-      }
-
-      // Vehículos
-      const vehRef = collection(db, "users", user.uid, "vehicles");
-      const vehDocs = await getDocs(vehRef);
-
-      if (vehDocs.empty) {
-        vehicleListDiv.innerHTML = "<p>No hay vehículos registrados.</p>";
-        return;
-      }
-
-      vehDocs.forEach((v) => {
+  async function renderAdminView() {
+    vehicleListDiv.innerHTML = "<h3>Panel del Administrador</h3>";
+    const usersSnap = await getDocs(collection(db, "users"));
+    for (const userDoc of usersSnap.docs) {
+      const uid = userDoc.id;
+      const userData = userDoc.data();
+      const vehiclesSnap = await getDocs(collection(db, "users", uid, "vehicles"));
+      vehiclesSnap.forEach((v) => {
         const d = v.data();
-        const vehicleCard = document.createElement("div");
-        vehicleCard.classList.add("vehicle-card");
-        vehicleCard.innerHTML = `
-          <strong>${d.year} ${d.make} ${d.model}</strong> 
-          — <i>${d.plate}</i> — <b>${d.tier}</b>
-          <div class="vehicle-profile">
-            <p><b>Estatus general:</b></p>
-            <div class="progress"><div class="progress-bar" style="width:${Math.floor(Math.random()*40+60)}%"></div></div>
-            <p><b>Próxima visita:</b> ${d.nextVisit || "Pendiente"}</p>
-            <div class="service-log">
-              <p><b>Últimos servicios:</b></p>
-              ${(d.services?.length ? d.services.map(s=>`<p>• ${s}</p>`).join("") : "<p>No hay servicios registrados</p>")}
-            </div>
-          </div>
-        `;
-        vehicleCard.addEventListener("click", () => {
-          const profile = vehicleCard.querySelector(".vehicle-profile");
-          profile.style.display = profile.style.display === "block" ? "none" : "block";
-        });
-        vehicleListDiv.appendChild(vehicleCard);
+        const card = createVehicleCard(v.id, d, true, uid, userData);
+        vehicleListDiv.appendChild(card);
       });
+    }
+  }
+
+  function createVehicleCard(id, data, isAdmin, ownerId = "", ownerData = {}) {
+    const card = document.createElement("div");
+    card.classList.add("vehicle-card");
+    card.innerHTML = `
+      <strong>${data.year} ${data.make} ${data.model}</strong> — <i>${data.plate}</i> — <b>${data.tier}</b>
+      ${isAdmin ? `<p style="font-size:.8rem;color:orange;">Propietario: ${ownerData.nombre || "Sin nombre"}</p>` : ""}
+      <div class="vehicle-profile">
+        <p><b>Estatus general:</b> <input type="range" min="0" max="100" value="${data.status || 100}" ${isAdmin ? "" : "disabled"} class="status-slider"></p>
+        <p><b>Próxima visita:</b> <input type="date" value="${data.nextVisit || ""}" ${isAdmin ? "" : "disabled"} class="next-visit"></p>
+        <div class="service-log">
+          <p><b>Servicios:</b></p>
+          <textarea class="service-list" rows="3" ${isAdmin ? "" : "disabled"}>${(data.services || []).join("\n")}</textarea>
+        </div>
+        ${isAdmin ? `<button class="select-btn save-btn">Guardar cambios</button>` : ""}
+      </div>
+    `;
+    card.addEventListener("click", () => {
+      const profile = card.querySelector(".vehicle-profile");
+      profile.style.display = profile.style.display === "block" ? "none" : "block";
     });
 
-    window.logout = () => signOut(auth).then(() => location.href="index.html");
-  </script>
-</body>
-</html>
+    if (isAdmin) {
+      const saveBtn = card.querySelector(".save-btn");
+      saveBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        const slider = card.querySelector(".status-slider");
+        const nextVisit = card.querySelector(".next-visit");
+        const serviceList = card.querySelector(".service-list");
+        await updateDoc(doc(db, "users", ownerId, "vehicles", id), {
+          status: Number(slider.value),
+          nextVisit: nextVisit.value || "Pendiente",
+          services: serviceList.value.split("\n").filter(s => s.trim() !== "")
+        });
+        alert("✅ Cambios guardados correctamente");
+      });
+    }
+    return card;
+  }
+
+  window.logout = () => signOut(auth).then(() => location.href = "index.html");
+</script>
